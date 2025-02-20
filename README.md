@@ -175,5 +175,7 @@ heroku addons --all
 heroku apps --all
 
 # REVISAR LINK 
-Link de tutoriales 
+
+Link de tutoriales:
+
 https://devcenter.heroku.com/articles/getting-started-with-python#next-steps
