@@ -156,3 +156,23 @@ $git push heroku main
  Finally, check that everything is working:
 
 $ heroku open
+
+
+# ELIMINAR APLICACION DE PRUEBA Y COMPLEMENTOS
+
+Elimina la aplicación y la base de datos de tu cuenta. Solo te cobraremos por los recursos que hayas utilizado.
+
+Esta acción elimina el complemento y todos los datos guardados en la base de datos.
+
+heroku addons:destroy heroku-postgresql
+Esta acción elimina permanentemente tu aplicación
+
+heroku apps:destroy
+Puedes confirmar que tu complemento y aplicación desaparecieron con estos comandos:
+
+heroku addons --all
+heroku apps --all
+
+# REVISAR LINK 
+Link de tutoriales 
+https://devcenter.heroku.com/articles/getting-started-with-python#next-steps
