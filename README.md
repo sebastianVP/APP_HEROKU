@@ -73,3 +73,17 @@ C:\Users\soporte\Documents\HEROKU_APP>python -m venv  heroku_env
 
 Para activarlo solo
 > heroku_env\Scripts\activate
+
+Activado el entorno venv llamado heroku_env
+
+Nos ubicamos dentro del directorio python-getting-started donde esta el archivo requirements.txt
+- (heroku_env) C:\Users\soporte\Documents\HEROKU_APP\python-getting-started>
+Escribimos el comando
+- pip install -r requirements.txt
+
+# Ejecutar la aplicación localmente
+Inicie su aplicación localmente usando el heroku localcomando, que es parte de la CLI de Heroku.
+
+Si estás en un sistema Microsoft Windows , ejecuta esto:
+
+- (heroku_env) C:\Users\soporte\Documents\HEROKU_APP\python-getting-started> heroku local --port 5006 -f Procfile.windows
