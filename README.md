@@ -44,6 +44,10 @@ To https://git.heroku.com/frozen-eyrie-16801.git
  -$ heroku ps:scale web=1
  Luego de eso:
  - $heroku open
+ AQUI DEBE ESTAR LA APLICACION, el link se muestra acontinuacion:
+ **https://frozen-eyrie-16801-73773ff35cbc.herokuapp.com/**
+
+
 
  # Observacion de logs
  $heroku logs --tail
@@ -87,3 +91,68 @@ Inicie su aplicación localmente usando el heroku localcomando, que es parte de 
 Si estás en un sistema Microsoft Windows , ejecuta esto:
 
 - (heroku_env) C:\Users\soporte\Documents\HEROKU_APP\python-getting-started> heroku local --port 5006 -f Procfile.windows
+
+# CAMBIOS EN EL PROGRAMA
+
+Modificar **hello/views.py** para importar el módulo requests y la clase HttpResponse de Django en la parte superior del archivo:
+
+´´´
+import requests
+from django.http import HttpResponse
+´´´
+Ahora modifique el metodo  index para utilizar el módulo. Intente reemplazar el método index actual con el siguiente código:
+´´´
+def index(request):
+    r = requests.get('https://httpbin.org/status/418', timeout=10)
+    return HttpResponse('<pre>' + r.text + '</pre>')
+
+´´´
+
+Ahora prueba nuevamente localmente.
+
+Si estás en un sistema Microsoft Windows , ejecuta esto:
+
+$ heroku local --port 5006 -f Procfile.windows
+
+Si nos sales error, instalamos el paquete:
+$ pip install requests
+
+# PARA ACTUALIZAR LOS CAMBIOS
+
+Ahora despliega los cambios locales en Heroki
+Casi todas las implementaciones en Heroku siguen este mismo patrón. Primero, agregue los archivos modificados al repositorio Git local:
+
+$git add .
+ Now commit the changes to the repository:
+
+$git commit -m "Updated index view"
+ Now deploy as before:
+
+$git push heroku main
+ Finally, check that everything is working:
+
+$ heroku open
+
+# ULTIMO UPDATE
+
+El ultimo cambio fue el uso de la libreria requests para que esto funcione debemos modificar y añadir en el archivo requirements.txt
+´´´
+django>=5.1,<5.2
+gunicorn>=23,<24
+dj-database-url>=2,<3
+whitenoise[brotli]>=6,<7
+requests
+´´´
+
+Luego de eso volvemos a hacer el commit
+
+$git add .
+ Now commit the changes to the repository:
+
+$git commit -m "Updated index view"
+ Now deploy as before:
+
+$git push heroku main
+ Finally, check that everything is working:
+
+$ heroku open
