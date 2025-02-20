@@ -96,17 +96,18 @@ Si estás en un sistema Microsoft Windows , ejecuta esto:
 
 Modificar **hello/views.py** para importar el módulo requests y la clase HttpResponse de Django en la parte superior del archivo:
 
-´´´
+```
 import requests
 from django.http import HttpResponse
-´´´
+```
 Ahora modifique el metodo  index para utilizar el módulo. Intente reemplazar el método index actual con el siguiente código:
-´´´
+
+```
 def index(request):
     r = requests.get('https://httpbin.org/status/418', timeout=10)
     return HttpResponse('<pre>' + r.text + '</pre>')
 
-´´´
+```
 
 Ahora prueba nuevamente localmente.
 
@@ -136,13 +137,13 @@ $ heroku open
 # ULTIMO UPDATE
 
 El ultimo cambio fue el uso de la libreria requests para que esto funcione debemos modificar y añadir en el archivo requirements.txt
-´´´
+```
 django>=5.1,<5.2
 gunicorn>=23,<24
 dj-database-url>=2,<3
 whitenoise[brotli]>=6,<7
 requests
-´´´
+```
 
 Luego de eso volvemos a hacer el commit
 
